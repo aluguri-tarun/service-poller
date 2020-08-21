@@ -1,0 +1,12 @@
+table, th, td {
+  border: 1px solid grey;
+  border-collapse: collapse;
+}
+td {
+  padding: 0.5em;
+}
+
+div.first {
+  display: inline-block;
+  width: 5em;
+}

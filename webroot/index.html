@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to KRY</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<h2>KRY status poller</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Url</th>
+        <th>Status</th>
+        <th>Added</th>
+        <th>Save</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody id="service-list"></tbody>
+</table>
+<div>
+    <p>
+    <div class="first">Add url:</div>
+    <input type="text" id="url-name">
+    <div class="first">Add name:</div>
+    <input type="text" id="name">
+    <button id="post-service">Save</button>
+    </p>
+<!--    <p>-->
+<!--    <div class="first">Delete url:</div>-->
+<!--    <input type="text" id="delete-url">-->
+<!--    <button id="delete-service">Delete</button>-->
+<!--    </p>-->
+</div>
+<!--<div>-->
+<!--    <b>Rename service:</b><br/>-->
+<!--    <p>-->
+<!--    <div class="first">Url:</div>-->
+<!--    <input type="text" id="rename-url"><br/>-->
+<!--    <div class="first">Name:</div>-->
+<!--    <input type="text" id="rename-name"><br/>-->
+<!--    <button id="rename-service">Rename</button>-->
+<!--    </p>-->
+<!--</div>-->
+
+</body>
+<script src="static/code.js">
+</script>
+<script language="javascript">
+setTimeout(function(){
+   window.location.reload(1);
+}, 30000);
+</script>
+</html>

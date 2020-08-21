@@ -1,9 +1,9 @@
-se/kry/codetest/BackgroundPoller.java
- se.kry.codetest.BackgroundPoller
-se/kry/codetest/Service.java
- se.kry.codetest.Service
 se/kry/codetest/DBConnector.java
  se.kry.codetest.DBConnector
+se/kry/codetest/Service.java
+ se.kry.codetest.Service
+se/kry/codetest/BackgroundPoller.java
+ se.kry.codetest.BackgroundPoller
 se/kry/codetest/MainVerticle.java
  se.kry.codetest.MainVerticle
 se/kry/codetest/migrate/DBMigration.java

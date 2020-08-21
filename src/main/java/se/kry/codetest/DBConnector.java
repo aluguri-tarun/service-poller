@@ -45,13 +45,10 @@ public class DBConnector {
             if (result.failed()) {
                 queryResultFuture.fail(result.cause());
                 System.out.println(result.cause());
-                System.out.println("dsaffads");
             } else {
                 queryResultFuture.complete(result.result());
-                System.out.println("success");
             }
         });
-        System.out.println("here");
         return queryResultFuture;
     }
 

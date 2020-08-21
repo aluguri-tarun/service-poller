@@ -36,20 +36,20 @@ public class MainVerticle extends AbstractVerticle {
     public void start(Future<Void> startFuture) {
         this.poller = new BackgroundPoller(vertx);
         this.connector = new DBConnector(vertx);
-        connector.query("CREATE TABLE IF NOT EXISTS service ("
-                + "url VARCHAR(128) NOT NULL PRIMARY KEY,"
-                + "name VARCHAR(128),"
-                + "timestamp TIMESTAMP"
-                + ")").setHandler(done -> {
-            System.out.println("in mig");
-            if (done.succeeded()) {
-                System.out.println("completed db migrations");
-                System.out.println("in mig suc");
-            } else {
-                done.cause().printStackTrace();
-                System.out.println("in mig fail");
-            }
-        });
+//        connector.query("CREATE TABLE IF NOT EXISTS service ("
+//                + "url VARCHAR(128) NOT NULL PRIMARY KEY,"
+//                + "name VARCHAR(128),"
+//                + "timestamp TIMESTAMP"
+//                + ")").setHandler(done -> {
+//            System.out.println("in mig");
+//            if (done.succeeded()) {
+//                System.out.println("completed db migrations");
+//                System.out.println("in mig suc");
+//            } else {
+//                done.cause().printStackTrace();
+//                System.out.println("in mig fail");
+//            }
+//        });
         connector.getAllServices().setHandler(ar -> {
             if (ar.succeeded()) {
                 services = ar.result().stream()

@@ -8,11 +8,11 @@ public class Service {
     public Instant timestamp;
     public String status;
 
-    public Service(String url, String name, Instant timestamp){
+    public Service(String url, String name, Instant timestamp) {
         this(url, name, timestamp, "UNKNOWN");
     }
 
-    public Service(String url, String name, Instant timestamp, String status){
+    public Service(String url, String name, Instant timestamp, String status) {
         this.url = url;
         this.name = name != null ? name : url;
         this.timestamp = timestamp;

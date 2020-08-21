@@ -42,7 +42,7 @@ public class MainVerticle extends AbstractVerticle {
                 + "timestamp TIMESTAMP"
                 + ")").setHandler(done -> {
             System.out.println("in mig");
-            if(done.succeeded()){
+            if (done.succeeded()) {
                 System.out.println("completed db migrations");
                 System.out.println("in mig suc");
             } else {
@@ -86,7 +86,7 @@ public class MainVerticle extends AbstractVerticle {
         router.route("/*").handler(StaticHandler.create());
         router.get("/service").handler(req -> {
             connector.getAllServices().setHandler(ar -> {
-                if(ar.succeeded()){
+                if (ar.succeeded()) {
                     List<Service> result = ar.result().stream().map(si -> {
                         si.status = services.getOrDefault(si.url, "UNKNOWN");
                         return si;
@@ -103,7 +103,7 @@ public class MainVerticle extends AbstractVerticle {
             JsonObject jsonBody = req.getBodyAsJson();
             String url = jsonBody.getString("url");
             String name = jsonBody.getString("name");
-            if(true){
+            if (true) {
                 connector.addService(url, name);
                 req.response()
                         .putHeader("content-type", "text/plain")

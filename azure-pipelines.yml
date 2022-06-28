@@ -10,7 +10,6 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- checkout: self
 - task: AzureKeyVault@2
   inputs:
     KeyVaultName: 'TarunCredentials'

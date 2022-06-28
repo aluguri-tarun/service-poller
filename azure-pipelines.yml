@@ -10,6 +10,13 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+- checkout: self
+- task: AzureKeyVault@2
+  inputs:
+    KeyVaultName: 'TarunCredentials'
+    SecretsFilter: 'ClientId'
+    RunAsPreJob: true
+
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
@@ -17,3 +24,22 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
+    projects: '**/*.csproj'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'run'
+    projects: '**/*.csproj'
+  env:
+    mySecret: $(ClientId)
+
+- bash: |
+    echo "Secret Found! $MY_MAPPED_ENV_VAR"        
+  env:
+    MY_MAPPED_ENV_VAR: $(mySecret)  
+
+

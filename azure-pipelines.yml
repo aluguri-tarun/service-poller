@@ -13,7 +13,7 @@ steps:
 - task: AzureKeyVault@2
   inputs:
     azureSubscription: 'Free Trial(255d1111-4208-46aa-b130-c96c3d5514ca)'
-    KeyVaultName: 'TarunCredentials'
+    KeyVaultName: 'IacCred1'
     SecretsFilter: 'ClientId, ClientSecret'
     RunAsPreJob: true
 

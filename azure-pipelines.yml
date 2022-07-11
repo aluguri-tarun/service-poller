@@ -12,33 +12,16 @@ pool:
 steps:
 - task: AzureKeyVault@2
   inputs:
+    azureSubscription: 'Free Trial(255d1111-4208-46aa-b130-c96c3d5514ca)'
     KeyVaultName: 'TarunCredentials'
-    SecretsFilter: 'ClientId'
+    SecretsFilter: 'ClientId, ClientSecret'
     RunAsPreJob: true
 
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
-
-- task: DotNetCoreCLI@2
+- task: ZscalerIaCScan@0
   inputs:
-    command: 'build'
-    projects: '**/*.csproj'
-
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'run'
-    projects: '**/*.csproj'
+    region: 'CUSTOM'
+    failBuild: true
   env:
-    mySecret: $(ClientId)
-
-- bash: |
-    echo "Secret Found! $MY_MAPPED_ENV_VAR"        
-  env:
-    MY_MAPPED_ENV_VAR: $(mySecret)  
-
+    AUTH_URL: "https://dev-auth.zscwp.io"
+    API_URL: "https://main.dev.api.zscwp.io"
 
